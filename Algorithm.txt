@@ -23,9 +23,17 @@ gameRules= “title “
 
 5. Create the game ’s menu options. Store it as mainMenuOptions.
 The main menu options must include exit, see rules, and play game.
-5a. See rules will have the same information as gameRules.
-6. Display game ’s menu options and personalized it by including the user’s name within the display. 
-7. Display game ’s menu    again but make a decision structure to determine the path of the game based on the user’s main menu choice. 
+5a. 'See rules' will have the same information as gameRules.
+
+
+6. Display game’s menu options and personalized it by including the user’s name within the display.  This might require to store as another variable it as mainMenu.
+Ex. This is an example within java using javax.swing.JOptionPane .
+mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice:",gameTitle,JOptionPane.QUESTION_MESSAGE,null,mainMenuOptions,SEE_RULES);
+
+
+
+7. Display game’s menu   again but make a decision structure to determine the path of the game based on the user’s main menu choice. 
+
 Ex. This is an example within java using javax.swing.JOptionPane .
 Ex. This is an example within java using javax.swing.JOptionPane .
 if (mainMenu.equals(SEE_RULES))
@@ -36,12 +44,36 @@ if (mainMenu.equals(SEE_RULES))
 		JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
 
 8. Create a score keeper for the game. Automatically the score keeper starts as 0. Store it as score. 
+
 9. Create 5 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask .
 
 10. Create an answer selection. Store it as questionsans.
 
-9. Display the all question and using the questionans as the selection choice. Store    the    corresponding question as qA1,qA2,qA3,qA4,qA5. ( Display to the user if the selection was right or wrong with the correct answer. Add a point to all correct answers and decrease the score by 1 if it is wrong. 
+9. Display the all question and using the questionans as the selection choice. Store    the    corresponding question as qA1,qA2,qA3,qA4,qA5. ( Display to the user if the selection was right or wrong with the correct answer. Add a point to all correct answers and decrease the score by 1 if it is wrong. This is within a decistion tree. 
+
+Ex. This is an example within java using javax.swing.JOptionPane .
+questions1ask = (" What does backslash n do in Java?")+ ("\n\n"+ "A) Causes a backslash to be printed\n"+ "B) Causes the cursor to go to the beginning of the current line, not the next line new line\n"+ "C) Causes the cursor to skip over to the next tab stop\n" + "D) Advances the cursor to the next line for subsequent printing");
+	
+questionsans = new String [] {"A", "B", "C", "D"}; //default available choice. This is an array.
+
+ qA1= (String) JOptionPane.showInputDialog(null, questions1ask,gameTitle,JOptionPane.QUESTION_MESSAGE,null,questionsans,questionsans[1]);
+
+		 //note , can create one questionsans and use as default since ifelse does check
+
+		if  ( qA1 == "D") {
+
+		JOptionPane.showMessageDialog (null, "1. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+		if (qA1 == "D") {
+		             score ++;}}
+
+		else
+		JOptionPane.showMessageDialog (null, "1. The answer is D.", gameTitle, JOptionPane.PLAIN_MESSAGE );
+
+
+
+
 11. Display the score to the user.
+
 12. Display the thank you message to the user.
 
 

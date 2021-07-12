@@ -277,7 +277,7 @@ do {
 while (qA7 != "C");					
 
 		//Closing message
-
+		overAllScore ();
 		JOptionPane.showMessageDialog(null, "That's the end of the game. Thank you for playing!");
 
 

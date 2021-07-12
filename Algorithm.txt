@@ -1,7 +1,16 @@
 ﻿Algorithm:
-/* Name: Team 4 Date modified: 06/22/21 Description: Create an algorithm for javaGamev1. This program is a quiz game that will add the user to learn about java. The game will prompt the user’ name and to answer 10 sets of questions and answers about Java. The correct answer is displayed after each question. Rules are also displayed in the game.
+ Name: Team 4
+Date modified: 07/12/21
+Description: Create an algorithm for javaGamev1. This program is a quiz game that will add the user to learn about java. The game will prompt the user’ name and to answer 10 sets of questions and answers about Java. The correct answer is displayed after each question. Rules are also displayed in the game.
 
-1. Display and create the title of the game . Store it as  gameTitle.
+1a. Create several global variables. It shall be used within the menue choice and for scroe keeping purposes.
+private static final String SEE_RULES = "1) See Rules";
+				private static final String PLAY_GAME = "2) Play Game";
+				private static final String EXIT_GAME = "3) Exit Game";
+				private static int score = 0, antiScore = 0; // antiScore: keeps tracks the amount of the the  wrong answer is selected
+									// score keep tracks of the right answer selected. 
+
+1b. Display and create the title of the game . Store it as  gameTitle.
 
 gameTitle = “title “
 
@@ -24,6 +33,12 @@ gameRules= “title “
 5. Create the game ’s menu options. Store it as mainMenuOptions.
 The main menu options must include exit, see rules, and play game.
 5a. 'See rules' will have the same information as gameRules.
+String[] mainMenuOptions;
+				mainMenuOptions = new String[3];
+				mainMenuOptions[0]= SEE_RULES;
+				mainMenuOptions[1]= PLAY_GAME;
+				mainMenuOptions [2]= EXIT_GAME;
+				
 
 
 6. Display game’s menu options and personalized it by including the user’s name within the display.  This might require to store as another variable it as mainMenu.
@@ -32,49 +47,88 @@ mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice
 
 
 
-7. Display game’s menu   again but make a decision structure to determine the path of the game based on the user’s main menu choice. 
+7. Display game’s menu  again but make a decision structure to determine the path of the game based on the user’s main menu choice within a loop . 
 
 Ex. This is an example within java using javax.swing.JOptionPane .
-Ex. This is an example within java using javax.swing.JOptionPane .
-if (mainMenu.equals(SEE_RULES))
-		JOptionPane.showMessageDialog(null, "Rules:\n\n" + gameRules, gameTitle,JOptionPane.PLAIN_MESSAGE );
-		else if (mainMenu.equals(EXIT_GAME))
-		System.exit(0);
-		else if (mainMenu.equals(PLAY_GAME))
-		JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
 
-8. Create a score keeper for the game. Automatically the score keeper starts as 0. Store it as score. 
-
-9. Create 5 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask .
-
-10. Create an answer selection. Store it as questionsans.
-
-9. Display the all question and using the questionans as the selection choice. Store    the    corresponding question as qA1,qA2,qA3,qA4,qA5. ( Display to the user if the selection was right or wrong with the correct answer. Add a point to all correct answers and decrease the score by 1 if it is wrong. This is within a decistion tree. 
-
-Ex. This is an example within java using javax.swing.JOptionPane .
-questions1ask = (" What does backslash n do in Java?")+ ("\n\n"+ "A) Causes a backslash to be printed\n"+ "B) Causes the cursor to go to the beginning of the current line, not the next line new line\n"+ "C) Causes the cursor to skip over to the next tab stop\n" + "D) Advances the cursor to the next line for subsequent printing");
-	
-questionsans = new String [] {"A", "B", "C", "D"}; //default available choice. This is an array.
-
- qA1= (String) JOptionPane.showInputDialog(null, questions1ask,gameTitle,JOptionPane.QUESTION_MESSAGE,null,questionsans,questionsans[1]);
-
-		 //note , can create one questionsans and use as default since ifelse does check
-
-		if  ( qA1 == "D") {
-
-		JOptionPane.showMessageDialog (null, "1. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
-		if (qA1 == "D") {
-		             score ++;}}
-
-		else
-		JOptionPane.showMessageDialog (null, "1. The answer is D.", gameTitle, JOptionPane.PLAIN_MESSAGE );
+do {
+				mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice:",gameTitle,JOptionPane.QUESTION_MESSAGE,null,mainMenuOptions,SEE_RULES);
 
 
+				if (mainMenu.equals(SEE_RULES))
+					
+					JOptionPane.showMessageDialog(null, "Rules:\n\n" + gameRules, gameTitle,JOptionPane.PLAIN_MESSAGE );
+			
+				else if (mainMenu.equals(EXIT_GAME))
+					{JOptionPane.showMessageDialog(null, "Thank you for playing!");
+					option = false; 
+					System.exit(0);}
+			
+				else if (mainMenu.equals(PLAY_GAME))
+					{JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
+					option = false;}
+
+				}
+		while (option);
+
+8. Create a calling method for the the score keeping. This will new include a new variable call totalScore to help calculate the returing message box  for overAllScore( calling method name). 
+
+ ie:  static void  overAllScore ()	
+				{
+					
+					int totalScore = (int) (((score+antiScore)*.10)*100);	
+					
+					JOptionPane.showMessageDialog( null,"Your score is: " + totalScore  ) ;
+				}
+
+9. Create 7 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask , questions6ask, questions7ask.
+
+String questions1ask;
+
+ie: 	questions1ask = ("1. What does backslash n do in Java?")+ ("\n\n"+ "A) Causes a backslash to be printed\n"+ "B) Causes the cursor to go to the beginning of the current line, not the next line new line\n"+ "C) Causes the cursor to skip over to the next tab stop\n" + "D) Advances the cursor to the next line for subsequent printing");
 
 
-11. Display the score to the user.
+10. Create an answer selection bank. Store it as questionsans.
 
-12. Display the thank you message to the user.
+
+				String[] questionsans;
+
+
+				questionsans = new String [] {"A", "B", "C", "D"}; //default available choice. This is an array.
+
+
+9. Display the all question and using the questionans as the selection choice. Store  the  corresponding question as qA1,qA2,qA3,qA4,qA5, qA6,qA7. ( If wrong, display to the user that the answer is wrong and try again. Add a point to all correct answers via variable score. Decrease by one for all incorrect answer via antiScore. This decistion tree is within a do-while loop which will exit to the next question if the user has it right . 
+
+ 
+do {
+				   qA1= (String) JOptionPane.showInputDialog(null, questions1ask,gameTitle,JOptionPane.QUESTION_MESSAGE,null,questionsans,questionsans[1]);
+
+				 //note , can create one questionsans and use as default since ifelse does check
+
+				if  ( qA1 == "D")
+				{
+
+				JOptionPane.showMessageDialog (null, "1. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+				      score ++;overAllScore();}
+				
+				
+
+				else
+				{
+				JOptionPane.showMessageDialog (null, "Wrong answer. Try agian!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+				
+				antiScore --;}
+
+	}
+	while (qA1 != "D");	
+				
+
+
+
+
+10. Display the score to the user.
+
+11. Display the thank you message to the user.
 
 
 

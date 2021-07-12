@@ -11,6 +11,7 @@ import javax.swing.JOptionPane.*;
 		private static final String SEE_RULES = "1) See Rules";
 		private static final String PLAY_GAME = "2) Play Game";
 		private static final String EXIT_GAME = "3) Exit Game";
+		
 
 		public static void main(String[] args)
 
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane.*;
 
 
 		String fullName, gameTitle, mainMenu, gameRules;
+		boolean option = true ; 
 
 
 		gameTitle = "GTX Java Trivia";
@@ -63,18 +65,25 @@ import javax.swing.JOptionPane.*;
 
 		//Prompt the user the following main menu within a message box
 
-
+do {
 		mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice:",gameTitle,JOptionPane.QUESTION_MESSAGE,null,mainMenuOptions,SEE_RULES);
 
 
 		if (mainMenu.equals(SEE_RULES))
-		JOptionPane.showMessageDialog(null, "Rules:\n\n" + gameRules, gameTitle,JOptionPane.PLAIN_MESSAGE );
+			
+			JOptionPane.showMessageDialog(null, "Rules:\n\n" + gameRules, gameTitle,JOptionPane.PLAIN_MESSAGE );
+	
 		else if (mainMenu.equals(EXIT_GAME))
-		System.exit(0);
+			{JOptionPane.showMessageDialog(null, "Thank you for playing!");
+			option = false; 
+			System.exit(0);}
+	
 		else if (mainMenu.equals(PLAY_GAME))
-		JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
+			{JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
+			option = false;}
 
-
+		}
+while (option);
 
 		// declaring  variable score
 		int score = 0;

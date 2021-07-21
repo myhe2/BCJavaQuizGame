@@ -5,7 +5,7 @@ import java.util.Scanner.*;
 
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane.*;
-	public class javaGamev2 {
+	public class javaGamev3 {
 
 		// Global variables  
 		private static final String SEE_RULES = "1) See Rules";
@@ -62,7 +62,7 @@ import javax.swing.JOptionPane.*;
 		JOptionPane.showMessageDialog(null, "Welcome " + fullName + "!" + "\nMain Menu:\n\n" + "1) See Rules\n2) Play Game\n3) Exit Game", gameTitle,JOptionPane.PLAIN_MESSAGE );
 
 
-		//Part 1 : validiation check of user choice 
+		//Part 1 : validation check of user choice 
 
 do {
 		mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice:",gameTitle,JOptionPane.QUESTION_MESSAGE,null,mainMenuOptions,SEE_RULES);
@@ -87,7 +87,7 @@ while (option);
 
 		// Declaring and settings variables Part 2: questions  and answers
 
-		String questions1ask, questions2ask, questions3ask , questions4ask , questions5ask, questions6ask, questions7ask;
+		String questions1ask, questions2ask, questions3ask , questions4ask , questions5ask, questions6ask, questions7ask,questions8ask;
 
 
 		questions1ask = ("1. What does backslash n do in Java?")+ ("\n\n"+ "A) Causes a backslash to be printed\n"+ "B) Causes the cursor to go to the beginning of the current line, not the next line new line\n"+ "C) Causes the cursor to skip over to the next tab stop\n" + "D) Advances the cursor to the next line for subsequent printing");
@@ -105,6 +105,8 @@ while (option);
 		questions6ask = ("6. What import is needed in order to use the PrintWriter feature?") + ("\n\n"+ "A) java.util.Scanner\n" +"B) java.util.Scanner*\n"+ "C) java.io\n"+ "D) java.io*");
 				
 		questions7ask = ("7. Which one is not correct?") + ("\n\n"+ "A) .nextDouble()\n" +"B) .nextFloat()\n"+ "C) .nextString()\n"+ "D) .nextInt()");
+		
+		questions8ask = ("8. On a Windows computer, paths contain ____ characters?") + ("\n\n"+ "A) Backslash \n" +"B) Forwardslash\n"+ "C) Curly braces\n"+ "D) Hashtag");
 
 
 		String[] questionsans;
@@ -114,7 +116,7 @@ while (option);
 
 		 
 
-		   String qA1, qA2, qA3, qA4, qA5,qA6,qA7;
+		   String qA1, qA2, qA3, qA4, qA5,qA6,qA7,qA8;
 
 // Validation of Part 2:
 
@@ -274,7 +276,26 @@ do {
 		
 	}
 
-while (qA7 != "C");					
+while (qA7 != "C");	
+
+do {
+
+	qA8= (String) JOptionPane.showInputDialog(null, questions8ask,gameTitle,JOptionPane.QUESTION_MESSAGE,null,questionsans,questionsans[1]);
+
+
+	if  ( qA8 == "A") {
+
+	JOptionPane.showMessageDialog (null, "5. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+	score ++; overAllScore();}
+
+	else {
+
+	JOptionPane.showMessageDialog (null, "Wrong answer. Try agian!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+	antiScore --;}
+	
+}
+
+while (qA8 != "A");
 
 		//Closing message
 		overAllScore ();
@@ -283,6 +304,7 @@ while (qA7 != "C");
 
 
 		}
+		
 		
 		
 static void  overAllScore ()	
@@ -295,5 +317,5 @@ static void  overAllScore ()
 		}
 
 	// Updates: Added new global variables for score tracking purposes: score and antiScore. Remove some comments and added more white space for readability purposes. . Added a do -while to main menu and each question. 
-	//Created a calling menthod called overall score, which include a new local varialbe within: totalscore.Change the format of grade and updated the rules.
+	//Created a calling method called overall score, which include a new local variable within: totalscore.Change the format of grade and updated the rules.
 	// Added two more questions

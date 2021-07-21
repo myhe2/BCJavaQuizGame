@@ -81,7 +81,7 @@ do {
 					JOptionPane.showMessageDialog( null,"Your score is: " + totalScore  ) ;
 				}
 
-9. Create 7 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask , questions6ask, questions7ask,questions8ask .
+9. Create 8 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask , questions6ask, questions7ask,questions8ask .
 
 String questions1ask;
 

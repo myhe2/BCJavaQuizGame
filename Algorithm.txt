@@ -1,7 +1,7 @@
 ﻿Algorithm:
  Name: Team 4
-Date modified: 07/12/21
-Description: Create an algorithm for javaGamev1. This program is a quiz game that will add the user to learn about java. The game will prompt the user’ name and to answer 10 sets of questions and answers about Java. The correct answer is displayed after each question. Rules are also displayed in the game.
+Date modified: 07/20/21
+Description: Create an algorithm for javaGamev3. This program is a quiz game that will add the user to learn about java. The game will prompt the user’ name and to answer 8 sets of questions and answers about Java. The correct answer is displayed after each question. Rules are also displayed in the game.
 
 1a. Create several global variables. It shall be used within the menue choice and for scroe keeping purposes.
 private static final String SEE_RULES = "1) See Rules";
@@ -81,7 +81,7 @@ do {
 					JOptionPane.showMessageDialog( null,"Your score is: " + totalScore  ) ;
 				}
 
-9. Create 7 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask , questions6ask, questions7ask.
+9. Create 7 questions. Store it as questions1ask,questions2ask,questions3ask,questions4ask,questions5ask , questions6ask, questions7ask,questions8ask .
 
 String questions1ask;
 
@@ -97,7 +97,7 @@ ie: 	questions1ask = ("1. What does backslash n do in Java?")+ ("\n\n"+ "A) Caus
 				questionsans = new String [] {"A", "B", "C", "D"}; //default available choice. This is an array.
 
 
-9. Display the all question and using the questionans as the selection choice. Store  the  corresponding question as qA1,qA2,qA3,qA4,qA5, qA6,qA7. ( If wrong, display to the user that the answer is wrong and try again. Add a point to all correct answers via variable score. Decrease by one for all incorrect answer via antiScore. This decistion tree is within a do-while loop which will exit to the next question if the user has it right . 
+9. Display the all question and using the questionans as the selection choice. Store  the  corresponding question as qA1,qA2,qA3,qA4,qA5, qA6,qA7,qA8. ( If wrong, display to the user that the answer is wrong and try again. Add a point to all correct answers via variable score. Decrease by one for all incorrect answer via antiScore. This decistion tree is within a do-while loop which will exit to the next question if the user has it right . 
 
  
 do {

@@ -245,7 +245,7 @@ do {
 
 		if  ( qA6 == "D") {
 
-		JOptionPane.showMessageDialog (null, "5. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+		JOptionPane.showMessageDialog (null, "6. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
 		score ++; overAllScore();}
 
 		else {
@@ -266,7 +266,7 @@ do {
 
 		if  ( qA7 == "C") {
 
-		JOptionPane.showMessageDialog (null, "5. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+		JOptionPane.showMessageDialog (null, "7. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
 		score ++; overAllScore();}
 
 		else {
@@ -285,7 +285,7 @@ do {
 
 	if  ( qA8 == "A") {
 
-	JOptionPane.showMessageDialog (null, "5. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+	JOptionPane.showMessageDialog (null, "8. Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
 	score ++; overAllScore();}
 
 	else {

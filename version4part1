@@ -1,0 +1,198 @@
+package teamProject;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.concurrent.ConcurrentSkipListMap;
+
+import javax.swing.JOptionPane;
+
+
+//import com.sun.tools.javac.code.Attribute.Array;
+
+
+
+	public class javaGamev4old2 {
+
+		
+		static String gameTitle = "GTX Java Trivia";
+		private static int score = 0, antiScore = 0;
+		static String[] recordedAnswers= new String [5];
+		private static final String SEE_RULES = "1) See Rules";
+		private static final String PLAY_GAME = "2) Play Game";
+		private static final String EXIT_GAME = "3) Exit Game";
+
+		
+
+
+		
+				public static void main(String[] args) throws IOException {
+					
+		//Part 1: Setting up the introduction of the game
+					
+					
+					String fullName, mainMenu, gameRules;
+					boolean option = true ; 
+					String[] mainMenuOptions;
+					mainMenuOptions = new String[3];
+					mainMenuOptions[0]= SEE_RULES;
+					mainMenuOptions[1]= PLAY_GAME;
+					mainMenuOptions [2]= EXIT_GAME;
+
+					gameRules = "1)No cheating. This stimulation is meant for learning purposes, cheating will not help you learn.\n\n"
+
+					 + "" + "2) There are 10 multiple choice questions, with 4 possible answers for each question. \tIf answered incorrectly you will be able to try again until you get the answer right. \n\nYour overall score is based on the amount times you get the answer right and wrong!" ;
+
+
+		//Part 1 : introduce the game  
+
+
+					JOptionPane.showMessageDialog(null, "Welcome to GTX Java Trivia!");
+
+					JOptionPane.showMessageDialog(null, "A quiz game to practice the concepts that you learn in your intro to Java class\n" + "The game consist of 10 questions that covers various chapters in the book.\n"
+
+					+ ""+  "Though this is a game to master your concepts, treat this as a real test.\n" +  "The top 3 scores will be posted on our 'All Stars' board, so try your hardest.");
+
+
+					JOptionPane.showMessageDialog(null, "Good Luck!");
+
+		// Part 1: Prompt the user their name and then display it 
+
+
+					fullName = JOptionPane.showInputDialog(null, "Enter your name:",gameTitle,JOptionPane.PLAIN_MESSAGE);
+
+
+
+					JOptionPane.showMessageDialog(null, "Welcome " + fullName + "!" + "\nMain Menu:\n\n" + "1) See Rules\n2) Play Game\n3) Exit Game", gameTitle,JOptionPane.PLAIN_MESSAGE );
+
+
+		//Part 1 : validation check of user choice 
+
+			do {
+					mainMenu = (String) JOptionPane.showInputDialog(null, "Select a Main Menu Choice:",gameTitle,JOptionPane.QUESTION_MESSAGE,null,mainMenuOptions,SEE_RULES);
+
+
+					if (mainMenu.equals(SEE_RULES))
+						
+						JOptionPane.showMessageDialog(null, "Rules:\n\n" + gameRules, gameTitle,JOptionPane.PLAIN_MESSAGE );
+				
+					else if (mainMenu.equals(EXIT_GAME))
+						{JOptionPane.showMessageDialog(null, "Thank you for playing!");
+						option = false; 
+						System.exit(0);}
+				
+					else if (mainMenu.equals(PLAY_GAME))
+						{JOptionPane.showMessageDialog(null, "Let's begin!", gameTitle,JOptionPane.PLAIN_MESSAGE );
+						option = false;}
+
+					}
+			while (option);
+
+					
+					
+					
+			//Part 2: Displaying the  game			
+					
+					
+					
+			
+					
+					
+					for (int i =0; i<1; i++) {
+	
+	
+	
+
+							int point = 0;
+							String question;
+							String answer;
+							
+	try{
+		
+		
+		File File= new File ("/Users/school/Desktop/Broward collegde/java/questions.txt");
+		Scanner input = new Scanner(File) ;
+
+
+
+			while (input.hasNext())
+			{
+
+				question = input.nextLine();
+
+				String[] fileAnswer;
+				fileAnswer = new String[5];
+
+				fileAnswer[0] = input.nextLine();
+
+				fileAnswer[1]= input.nextLine();
+
+				fileAnswer[2]= input.nextLine();
+	
+				fileAnswer[3]= input.nextLine();
+				answer= input.nextLine();
+				point = input.nextInt();
+				String skip =input.nextLine();
+				input.nextLine();
+
+
+		recordedAnswers[i] =(String) JOptionPane.showInputDialog(null, question,gameTitle,JOptionPane.QUESTION_MESSAGE,null,fileAnswer,fileAnswer[1]);
+		
+		
+		
+		if (answer.equalsIgnoreCase(recordedAnswers[i]))
+		{
+			
+			JOptionPane.showMessageDialog (null, "Correct!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+			score ++; overAllScore();
+			
+		}
+		
+		else 
+			
+		{	JOptionPane.showMessageDialog (null, "Incorrect!", gameTitle, JOptionPane.PLAIN_MESSAGE );
+		antiScore --;
+
+		}
+			
+				
+		
+		
+		}}
+						catch (Exception e) {
+								// TODO: handle exception
+							System.out.println(e.getMessage());
+	
+
+							}
+	
+	
+	//Closing message
+	
+			JOptionPane.showMessageDialog(null, "That's the end of the game. Thank you for playing!" );
+			overAllScore ();
+	
+	
+					
+		}					
+				
+					
+		
+				}
+				
+	
+				static void  overAllScore ()	
+				{
+					int totalScore = (int) (((score+antiScore)*.10)*100);	
+							
+					JOptionPane.showMessageDialog( null,"Your score is: " + totalScore  ) ;
+				}
+	}
+	
+				
+				
+	
+	
+				
+				

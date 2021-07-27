@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 		
 		static String gameTitle = "GTX Java Trivia";
 		private static int score = 0, antiScore = 0;
+		private static int totalScore;
 		static String[] recordedAnswers= new String [5];
 		private static final String SEE_RULES = "1) See Rules";
 		private static final String PLAY_GAME = "2) Play Game";
@@ -184,7 +185,7 @@ import javax.swing.JOptionPane;
 	
 				static void  overAllScore ()	
 				{
-					int totalScore = (int) (((score+antiScore)*.10)*100);	
+					totalScore = (int) (((score+antiScore)*.10)*100);	
 							
 					JOptionPane.showMessageDialog( null,"Your score is: " + totalScore  ) ;
 				}
@@ -194,5 +195,4 @@ import javax.swing.JOptionPane;
 				
 	
 	
-				
-				
+						

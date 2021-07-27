@@ -1,8 +1,9 @@
 package teamProject;
 import java.io.PrintStream;
-
+import java.io.*
 import java.util.Scanner.*;
-
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane.*;
 	public class javaGamev3 {
@@ -315,7 +316,28 @@ static void  overAllScore ()
 		}
 
 		}
-
+File file = new File ("text.txt");
+ 	
+    	try {
+    	if (!file.exists()) {
+				file.createNewFile();
+    	}
+    	PrintWriter pw = new PrintWriter(file);
+    	pw.println("1. What does backslash n do in Java?");
+    	pw.println("A) Causes a backslash to be printed");
+    	pw.println("B) Causes the cursor to go to the beginning of the current line, not the next line new line");
+    	pw.println("C) Causes the cursor to skip over to the next tab stop");
+    	pw.println("D) Advances the cursor to the next line for subsequent printing");
+    	pw.println("D");
+    	pw.println("Pointvalue"); 
+    	pw.close();
+			System.out.println("Done");			
+        } catch (IOException e) {
+			e.printStackTrace();
+            }
+    
+    }
+}
 	// Updates: Added new global variables for score tracking purposes: score and antiScore. Remove some comments and added more white space for readability purposes. . Added a do -while to main menu and each question. 
 	//Created a calling method called overall score, which include a new local variable within: totalscore.Change the format of grade and updated the rules.
 	// Added two more questions
